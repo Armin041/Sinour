@@ -1,7 +1,6 @@
 // All components mapping with path for internal routes
 
 import { lazy } from 'react'
-
 const Dashboard = lazy(() => import('../pages/protected/Dashboard'))
 const Welcome = lazy(() => import('../pages/protected/Welcome'))
 const Page404 = lazy(() => import('../pages/protected/404'))
@@ -18,7 +17,12 @@ const GettingStarted = lazy(() => import('../pages/GettingStarted'))
 const DocFeatures = lazy(() => import('../pages/DocFeatures'))
 const DocComponents = lazy(() => import('../pages/DocComponents'))
 const UsersList = lazy(() => import('../pages/protected/UsersList'))
-
+const RolesList = lazy(() => import('../pages/protected/RolesList'))
+const OporationTypeList = lazy(() => import('../pages/protected/OporationTypes'))
+const OporatorsList = lazy(() => import('../pages/protected/oporators'))
+const PasswordChange = lazy(() => import('../pages/protected/PasswordChange'))
+const BrandsList = lazy(() => import('../pages/protected/BrandsList'))
+const ProductsNameList = lazy(() => import('../pages/protected/ProductsNameList'))
 
 const routes = [
   {
@@ -84,7 +88,31 @@ const routes = [
   {
     path: '/users', // Define the URL path
     component: UsersList, // Specify the UsersList component
-  }
+  },
+  {
+    path: '/Roles',
+    component: RolesList,
+  },
+  {
+    path: '/OporationTypes',
+    component: OporationTypeList,
+  },
+  {
+    path: '/oporators',
+    component: OporatorsList
+  },
+  {
+    path: '/password-change',
+    component: PasswordChange
+  },
+  {
+    path: '/brands',
+    component: BrandsList
+  },
+  {
+    path: '/products/names',
+    component: ProductsNameList
+  },
 
 ]
 

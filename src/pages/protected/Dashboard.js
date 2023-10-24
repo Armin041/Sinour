@@ -3,15 +3,15 @@ import { useDispatch } from 'react-redux'
 import { setPageTitle } from '../../features/common/headerSlice'
 import Dashboard from '../../features/dashboard/index'
 
-function InternalPage(){
+function InternalPage() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setPageTitle({ title : "Dashboard"}))
-      }, [])
+        dispatch(setPageTitle({ title: "داشبورد" }))
+    }, [])
 
 
-    return(
+    return (
         <Dashboard />
     )
 }

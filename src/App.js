@@ -6,6 +6,9 @@ import checkAuth from './app/auth';
 import initializeApp from './app/init';
 import UsersList from './pages/UsersList';
 import { fetchUsers } from './services/Authentication/usersService';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsersApi } from './features/users/userSlice';
+import { fetchUserRolesApi } from './features/roles/roleSlice';
 
 // Importing pages
 const Layout = lazy(() => import('./containers/Layout'))
@@ -24,6 +27,31 @@ const token = checkAuth()
 
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  const status = useSelector(state => state.users.status)
+
+  const fetchUsersList = () => {
+
+    const response = dispatch(getUsersApi())
+    return response
+  }
+  const fetchUsersRolesList = () => {
+
+    const response = dispatch(fetchUserRolesApi())
+    return response
+  }
+
+  useEffect(() => {
+
+    if (status === "idle") {
+      fetchUsersList()
+      fetchUsersRolesList()
+
+    }
+  }, [status])
+
 
   useEffect(() => {
     // 👆 daisy UI themes initialization
